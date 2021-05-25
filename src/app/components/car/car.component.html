@@ -1,0 +1,44 @@
+
+<div class="container">
+  <div class="row">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>FuelType </th>
+          <th>Brand </th>
+          <th >CarCapacity</th>
+          <th>Car Color</th>
+          <th>NumberOfDoors </th>
+
+
+         <th>Location</th>
+          <th>Description</th>
+          <th><a routerLink ="add" class="btn btn-sm btn-success mb-2">Add</a></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = "let car of car">
+          <td>{{car.fuelType}}</td>
+          <td>{{car.brandName}}</td>
+          <td>{{car.carCapacity}}</td>
+          <td>{{car.carColor}}</td>
+          <td>{{car.numberOfDoors}}</td>
+          <td>{{car.carLocation}}</td>
+          <td>{{car.description}}</td>
+          <td style="white-space: nowrap">
+            <a  routerLink="edit/{{car.id}}" class="btn btn-sm btn-primary m-2"
+              >Edit</a
+            >
+            <a
+              type="button"
+              class="btn btn-sm btn-danger mt-2"
+              (click)="openConfirmation(car)"
+              >Delete</a
+            >
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

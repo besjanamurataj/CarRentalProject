@@ -1,0 +1,24 @@
+<app-card style="width: 700px;">
+  <span slot="start"><h2>Model</h2></span>
+
+
+    <table class="table table-striped">
+      <thead>
+          <tr>
+              <th style="width: 30%">Name</th>
+              <th style="width: 20%"><a routerLink ="/home/model/add" class="btn btn-sm btn-success mb-2">Add</a></th>
+          </tr>
+      </thead>
+      <tbody>
+           <tr *ngFor="let item of model">
+              <td>{{item.name}}</td>
+              <td style="white-space: nowrap">
+                  <a routerLink ="/home/model/edit/{{item.id}}" class="btn btn-sm btn-primary mr-1" (click)="getModels(item.id)">Edit</a>
+                  <a  class="btn btn-sm btn-danger btn-delete-user ml-2"(click)="openConfirmation(item)">
+                   Delete
+                  </a>
+              </td>
+              </tr>
+      </tbody>
+  </table>
+</app-card>

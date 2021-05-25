@@ -1,0 +1,26 @@
+ <div class="container">
+  <app-card>
+    <span slot="start"><h3 *ngIf="isAddModal">Add Transmision</h3>
+      <h3 *ngIf="!isAddModal">Edit Transmision</h3></span>
+    <div class="container">
+      <form [formGroup]="transmisionForm">
+        <label for=""> Enter a name</label>
+        <input type="text" class="form-control" formControlName="name" />
+        <div
+          *ngIf="name.invalid && (name.dirty || name.touched)"
+          class="text-danger"
+        >
+          <div *ngIf="name.errors.required">Name is required.</div>
+        </div>
+        <div class="row mt-2">
+          <div class="col">
+            <button class="btn btn-secondary" routerLink="/home/transmision">
+              Cancel
+            </button>
+            <button class="btn btn-primary" [disabled]="transmisionForm.invalid" (click)="save()">Save</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </app-card>
+</div>

@@ -1,0 +1,21 @@
+.col {
+  text-align: right;
+}
+button.btn.btn-primary {
+  margin-left: 12px;
+}
+ input{
+  display: block;
+  margin : auto;
+  position: relative;
+ }
+
+ label{
+   text-align: center;
+ }
+ h3{
+   text-align: center;
+ }
+ .text-danger{
+  font-size: small;
+}

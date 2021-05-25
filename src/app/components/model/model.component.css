@@ -1,0 +1,10 @@
+a{
+    float: right;
+}
+h2{
+  text-align: center;
+}
+
+a.btn.btn-sm.btn-danger.btn-delete-user.ml-2 {
+  margin-right: 4px;
+}

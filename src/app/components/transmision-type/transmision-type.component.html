@@ -1,0 +1,35 @@
+<app-card>
+  <span slot="start"><h2>Transmision List</h2></span>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th style="width: 30%">Name</th>
+        <th style="width: 40%">
+          <a routerLink="add" class="btn btn-sm btn-success mb-2"
+            >Add</a
+          >
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let transmision of transmisionsArr">
+        <td>{{transmision.name}}</td>
+
+        <td style="white-space: nowrap">
+
+
+          <a routerLink="edit/{{ transmision.id }}" class="btn btn-sm btn-primary mt-2"
+            >Edit</a
+          >
+          <a
+            type="button"
+            (click)=" openConfirmation(transmision)"
+            class="btn btn-sm btn-danger m-2"
+            >Delete</a
+          >
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</app-card>

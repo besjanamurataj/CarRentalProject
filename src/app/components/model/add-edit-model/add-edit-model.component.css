@@ -1,0 +1,24 @@
+label {
+  color: #2b2424;
+  font-size: medium;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+button.btn.btn-primary.fueltype {
+  margin-left: 12px;
+}
+
+.col-md-12 {
+  text-align: right;
+}
+
+button.btn.btn-primary {
+  margin-left: 6px;
+}
+.text-danger{
+  font-size: small;
+}
+h2{
+  text-align: center;
+}

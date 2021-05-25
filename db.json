@@ -1,0 +1,76 @@
+{
+  "car": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "model": [
+    {
+      "id": 1,
+      "name": "some comment",
+      "brandId": 1
+    },
+    {
+      "brand": "undefined",
+      "name": "nnn",
+      "id": 2
+    },
+    {
+      "brand": "6",
+      "name": "test",
+      "id": 3
+    },
+    {
+      "brand": "6",
+      "name": "test",
+      "id": 4
+    },
+    {
+      "brand": "6",
+      "name": "shsh",
+      "id": 5
+    },
+    {
+      "brand": "6",
+      "name": "test",
+      "id": 6
+    },
+    {
+      "brand": "7",
+      "name": "test2",
+      "id": 7
+    }
+  ],
+  "brand": [
+    {
+      "name": "besa",
+      "id": 6
+    },
+    {
+      "name": "jaihEFZUtgo",
+      "id": 7
+    }
+  ],
+  "fueltype": [
+    {
+      "name": "nnn",
+      "id": 6
+    },
+    {
+      "name": "besa12334",
+      "id": 7
+    },
+    {
+      "name": "vv",
+      "id": 8
+    }
+  ],
+  "transmision": [
+    {
+      "name": "besa",
+      "id": 1
+    }
+  ]
+}

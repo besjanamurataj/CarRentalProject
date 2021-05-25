@@ -1,0 +1,30 @@
+<div class="container-fluid  col-lg-6 col-md-6  col-s-6  col-xs-6">
+		<div class="row main-content bg-success text-center" style="width: 700px;">
+			<div class="col-md-4 text-center company__info">
+				<h4 class="company_title">Car Rental</h4>
+			</div>
+			<div class="col-md-8 col-xs-12 col-sm-12 login_form ">
+				<div class="container-fluid">
+					<div class="row">
+						<h2 class="mt-1">Log In</h2>
+					</div>
+					<div class="row">
+						<form [formGroup] ="loginForm" class="form-group">
+							<div class="row">
+								<input type="text" name="username" id="username" class="form__input" formControlName = "username" placeholder="Username">
+							</div>
+							<div class="row">
+
+								<input type="password" name="password" id="password" class="form__input"  formControlName ="password" placeholder="Password">
+							</div>
+
+							<div class="row">
+								<input type="submit" value="Submit" (click) =login() class="btn">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+

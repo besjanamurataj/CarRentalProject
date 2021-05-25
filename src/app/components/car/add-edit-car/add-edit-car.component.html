@@ -1,0 +1,187 @@
+<div class="container">
+  <app-card>
+    <span slot="start">
+      <h2 *ngIf="isAddModal">Add Car</h2>
+      <h2 *ngIf="!isAddModal">Edit Car</h2>
+    </span>
+    <div class="container">
+      <form [formGroup]="carForm">
+        <div class="row">
+          <div class="col-sm-6">
+            <label for="" class="form-label"> Enter a brand </label>
+            <select  #mySelect (change)="getModels(mySelect.value)" class="form-control" formControlName="brand"
+            >
+            <option selected  value="">Choose...</option>
+            <option *ngFor="let brand of brandArr "  [value]="brand.id"> {{brand.name}}</option>
+          </select>
+            <div
+            *ngIf="brand.invalid && (brand.dirty || brand.touched)"
+            class="text-danger"
+          >
+            <div *ngIf="brand.errors.required"> Brand is required.</div>
+          </div>
+          </div>
+          <div class="col-sm-6">
+            <label for="" class="form-label"> Enter a fuelType</label>
+            <select name="" class="form-control" id="category" formControlName="fuelType">
+              <option selected disabled value="">Choose...</option>
+              <option *ngFor="let brand of fuelArray " [value]="brand.id"> {{brand.name}}  </option>
+            </select>
+          </div>
+
+        </div>
+
+        <div class="row">
+
+          <div class="col-sm-6">
+            <label  class="form-label"> Enter a model</label>
+            <select  class="form-control" id="category" formControlName="model">
+              <option selected disabled >Choose...</option>
+              <option *ngFor="let model of modelsArr" [value]="model.id"> {{model.name}}  </option>
+            </select>
+            <div
+            *ngIf="model.invalid && (model.dirty || model.touched)"
+            class="text-danger"
+          >
+             <div *ngIf="model.errors.required">Model is required *.</div>
+          </div>
+          </div>
+
+          <div class="col-sm-6">
+            <label for="" class="form-label"> Enter a transmisionType</label>
+         <select name="" class="form-control" id="category"> -->
+           <option selected disabled value="">Choose...</option>
+              <option *ngFor="let transmision of transmisionsArr " [value]="model.id">{{transmision.name}}</option>
+        </select>
+             <div
+            *ngIf="transmisionType.invalid && (transmisionType.dirty || transmisionType.touched)"
+            class="text-danger"
+          >
+             <div *ngIf="transmisionType.errors.required">TransmisionType is required *.</div>
+          </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6">
+
+              <label for="" class="form-label"> Enter a number </label>
+              <input class="form-control" formControlName="number" />
+             <div
+                *ngIf="number.invalid && (number.dirty || number.touched)"
+                class="text-danger"
+              >
+                 <div *ngIf="number.errors.required">Number is required*.</div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <label for="" class="form-label"> Enter a numberOfDoors </label>
+              <input
+
+                type="text"
+                class="form-control"
+
+                formControlName="numberOfDoors"
+              />
+              <div
+              *ngIf="numberOfDoors.invalid && (numberOfDoors.dirty || numberOfDoors.touched)"
+              class="text-danger"
+            >
+               <div *ngIf="numberOfDoors.errors.required">Number is required *.</div>
+            </div>
+            </div>
+
+          </div>
+
+
+
+        <div class="row">
+
+
+          <div class="col-sm-6">
+            <label for="" class="form-label"> Enter a carCapacity</label>
+            <input
+
+              type="text"
+              class="form-control"
+
+              formControlName="carCapacity"
+            />
+            <div
+            *ngIf="carCapacity.invalid && (carCapacity.dirty || carCapacity.touched)"
+            class="text-danger"
+          >
+             <div *ngIf="carCapacity.errors.required">CarCapacity is required *.</div>
+          </div>
+
+          </div>
+          <div class="col-sm-6">
+            <label for="" class="form-label"> Enter a carColor</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="carColor"
+            />
+            <div
+            *ngIf="carColor.invalid && (carColor.dirty || carColor.touched)"
+            class="text-danger"
+          >
+             <div *ngIf="carColor.errors.required">CarColor is required *.</div>
+          </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-sm-6">
+            <label for="" class="form-label"> Enter a priceForDay</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="priceForDay"
+            />
+            <div
+            *ngIf="priceForDay.invalid && (priceForDay.dirty || priceForDay.touched)"
+            class="text-danger"
+          >
+             <div *ngIf="priceForDay.errors.required">CarColor is required *.</div>
+          </div>
+          </div>
+
+          <div class="col-sm-6">
+            <label for="" class="form-label"> Enter a CarLocation</label>
+            <input
+
+              type="text"
+              class="form-control"
+              formControlName="carLocation"
+            />
+            <div
+            *ngIf="carLocation.invalid && (carLocation.dirty || carLocation.touched)"
+            class="text-danger"
+          >
+             <div *ngIf="carLocation.errors.required">CarLocation is required *.</div>
+          </div>
+
+          </div>
+          <div class="col-sm-6">
+            <label for="" class="form-label"> Enter a Description</label>
+            <input
+              type="text"
+              class="form-control"
+
+              formControlName="description"
+            />
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-md-12">
+            <button class="btn btn-secondary" routerLink="/home/car">Cancel</button>
+            <button class="btn btn-primary"  (click)="save()">Save</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </app-card>
+</div>

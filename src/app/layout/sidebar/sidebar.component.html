@@ -1,0 +1,15 @@
+<div class="page-container">
+  <div class="sidebar">
+    <div class="list-items" >
+      <div *ngFor="let item of items">
+        <a class="list-item" [routerLink]="item.link" routerLinkActive ="active">
+          {{ item.label }}
+      </a>
+      </div>
+    </div>
+  </div>
+
+    <router-outlet></router-outlet>
+
+
+</div>

@@ -1,0 +1,23 @@
+.col-md-12 {
+  text-align: right;
+}
+button.btn.btn-secondary {
+  margin-right: 12px;
+}
+
+label {
+  text-align: center;
+  color: black;
+  font-size: medium;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 5px;
+}
+
+.text-danger {
+  font-size: small;
+}
+
+h2 {
+  text-align: center;
+  padding-bottom: 12px;
+}
