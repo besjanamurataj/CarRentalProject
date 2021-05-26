@@ -11,11 +11,11 @@ import { BrandService } from 'src/app/core/service/brand.service';
 import { ToastrService } from 'src/app/core/service/toastr.service';
 import {
   MESSAGE_ADD_BRAND,
-  MESSAGE_ERROR,
+
   MESSAGE_UPDATE_BRAND,
   TITLE_BRAND,
 } from '../brand.constant';
-
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-add-edit-brand',
   templateUrl: './add-edit-brand.component.html',
@@ -31,7 +31,8 @@ export class AddEditBrandComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private title: Title,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private location:Location,
   ) {}
 
   ngOnInit(): void {
@@ -90,5 +91,9 @@ export class AddEditBrandComponent implements OnInit {
      }),(error)=>{
         console.error(error);
      }
+    }
+
+    goBack(){
+      this.location.back();
     }
 }

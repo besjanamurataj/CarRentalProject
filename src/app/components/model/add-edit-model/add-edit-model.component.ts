@@ -1,5 +1,6 @@
+import { NavigationService } from './../../../core/service/navigation/navigation.service';
 import { AddModel } from './../../../core/models/AddModels';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, NavigationError } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { ToastrService } from './../../../core/service/toastr.service';
 import { BrandService } from 'src/app/core/service/brand.service';
@@ -23,7 +24,9 @@ export class AddEditModelComponent implements OnInit {
  brandArr:Brand[] =[];
  model:Model [] =[];
   constructor(private formBuilder:FormBuilder, private modelService: ModelService, private brandService:BrandService,
-    private toastr:ToastrService, private title:Title, private router:Router, private route:ActivatedRoute) { }
+    private toastr:ToastrService, private title:Title, private router:Router, private route:ActivatedRoute,
+    private navigation:NavigationService
+   ) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
@@ -54,9 +57,7 @@ export class AddEditModelComponent implements OnInit {
       this.updateModel();
     }
   }
-  getModel(){
 
-  }
   getListBrand(){
     this.brandService.getAll().subscribe(
       data =>{
@@ -92,6 +93,10 @@ getModelById(id){
           brandId:data.brandId,
        })
   })
+}
+
+back(){
+  this.navigation.back();
 }
 
 }

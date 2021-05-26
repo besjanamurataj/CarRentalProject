@@ -9,9 +9,9 @@ const routes: Routes = [
     path: '',
     component: LayoutComponent,
     children: [
-      { path: '', component: TransmisionTypeComponent },
-      { path: 'add', component: AddEditTransmisionComponent },
-      { path: 'edit/:id', component: AddEditTransmisionComponent },
+      { path: '',  data: { breadcrumb: null},component: TransmisionTypeComponent },
+      { path: 'add',  data: {breadcrumb: 'Add Transmision'}, component: AddEditTransmisionComponent },
+      { path: 'edit/:id',  data: {breadcrumb: 'Edit Transmision'}, component: AddEditTransmisionComponent },
     ],
   },
 ];

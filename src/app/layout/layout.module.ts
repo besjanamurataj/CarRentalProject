@@ -6,12 +6,14 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home/home.component';
 @NgModule({
   declarations: [
     PageNotFoundComponent,
     NavbarComponent,
     PageNotFoundComponent,
-    SidebarComponent
+    SidebarComponent,
+    HomeComponent
   ],
   imports: [
     CommonModule,

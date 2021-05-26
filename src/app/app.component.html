@@ -1,3 +1,23 @@
-<app-navbar></app-navbar>
-<router-outlet></router-outlet>
+<div id="wrapper">
+  <div id="content-wrapper" class="d-flex flex-column">
+    <div id="content">
+      <app-navbar>
+
+        <!-- <app-ng-dynamic-breadcrumb>
+
+   <ol>
+  <ng-templete let route *ngFor ="parent.breadcrumbs">
+    <li>
+      <a>{{route.displayName}}</a>
+    </li>
+  </ng-templete>
+  </ol>
+
+
+        </app-ng-dynamic-breadcrumb> -->
+      </app-navbar>
+         <router-outlet></router-outlet>
+        </div>
+  </div>
+</div>
 <app-toastr></app-toastr>

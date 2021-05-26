@@ -1,11 +1,40 @@
- <nav class="navbar navbar-expand-lg">
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-     
-     <a class="btn btn-primary my-2 my-sm-0" type="submit" (click)="logo()">Logout</a>
-    </div>
-  </div>
+
+<nav
+class="
+  navbar navbar-expand navbar-light
+  bg-white
+  topbar
+
+  static-top
+  shadow
+"
+>
+
+<button
+  id="sidebarToggleTop"
+  class="btn btn-link d-md-none rounded-circle mr-3"
+>
+  <i class="fa fa-bars">logout</i>
+</button>
+<ul class="navbar-nav ml-auto">
+  <li class="nav-item dropdown no-arrow mx-1">
+  </li>
+  <div class="topbar-divider d-none d-sm-block"></div>
+  <li class="nav-item dropdown no-arrow">
+    <a
+      class="nav-link dropdown-toggle"
+      href="#"
+      id="userDropdown"
+      role="button"
+      data-toggle="dropdown"
+      aria-haspopup="true"
+      aria-expanded="false"
+    >
+      <span class="mr-2  d-lg-inline text-gray-600 small"
+        >Logout</span
+      >
+    </a>
+
+  </li>
+</ul>
 </nav>
-
-
-

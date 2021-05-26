@@ -1,30 +1,43 @@
-<div class="container-fluid  col-lg-6 col-md-6  col-s-6  col-xs-6">
-		<div class="row main-content bg-success text-center" style="width: 700px;">
-			<div class="col-md-4 text-center company__info">
-				<h4 class="company_title">Car Rental</h4>
-			</div>
-			<div class="col-md-8 col-xs-12 col-sm-12 login_form ">
-				<div class="container-fluid">
-					<div class="row">
-						<h2 class="mt-1">Log In</h2>
-					</div>
-					<div class="row">
-						<form [formGroup] ="loginForm" class="form-group">
-							<div class="row">
-								<input type="text" name="username" id="username" class="form__input" formControlName = "username" placeholder="Username">
-							</div>
-							<div class="row">
 
-								<input type="password" name="password" id="password" class="form__input"  formControlName ="password" placeholder="Password">
-							</div>
+ <div class="container">
+  <div class="row justify-content-center">
+      <!-- <div class="col-xl-10 col-lg-12 col-md-9"> -->
+          <!-- <div class="card o-hidden border-0 shadow-lg my-5"> -->
+              <!-- <div class="card-body p-0"> -->
+                  <!-- <div class="row"> -->
+                      <!-- <div class="col-lg-6 d-none d-lg-block bg-login-image">
+                        <img src="../../../assets/car.jpg" alt="">
+                      </div> -->
+                      <div class="col-lg-6">
+                          <div class="p-5">
+                              <div class="text-center">
+                                  <h1 class="h4 text-gray-900 mb-4">Log In</h1>
+                              </div>
+                              <form [formGroup] ="loginForm" class="form-group user">
 
-							<div class="row">
-								<input type="submit" value="Submit" (click) =login() class="btn">
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                                  <div class="form-group">
+                                      <input type="email" class="form-control form-control-user m-3"
+                                          formControlName = "username"
+                                          placeholder="Enter Username...">
+                                  </div>
+                                  <div class="form-group">
+                                      <input type="password" class="form-control form-control-user m-3"
+                                      formControlName = "password"
+                                          placeholder="Password">
+                                  </div>
 
+                                  <a class="btn btn-primary btn-user btn-block form-control form-control-user m-3" (click)="login()">
+                                      Login
+                                  </a>
+                              </form>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          <!-- </div> -->
+
+      <!-- </div> -->
+
+  <!-- </div> -->
+
+<!-- </div> -->

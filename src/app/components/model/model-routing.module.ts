@@ -9,9 +9,9 @@ import { ModelComponent } from './model.component';
 const routes: Routes = [
   {path:"", component:LayoutComponent,
   children:[
-    {path:'', component:ModelComponent},
-    {path:'add', component:AddEditModelComponent},
-    {path:'edit/:id', component:AddEditModelComponent}
+    {path:'', data: {breadcrumb: null}, component:ModelComponent},
+    {path:'add',  data: {breadcrumb: 'Add Model'}, component:AddEditModelComponent},
+    {path:'edit/:id', data: {breadcrumb: 'Add Model'}, component:AddEditModelComponent}
 
   ]
 }

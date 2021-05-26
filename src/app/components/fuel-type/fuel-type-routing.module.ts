@@ -8,9 +8,9 @@ import { AddEditComponent } from './add-edit/add-edit.component';
 const routes: Routes = [
   {path:'',component:LayoutComponent,
    children:[
-      {path:'', component:FuelTypeComponent},
-     {path:'add',component:AddEditComponent},
-     {path:'edit/:id',component:AddEditComponent},
+      {path:'', data: {breadcrumb: null}, component:FuelTypeComponent},
+     {path:'add',  data: {breadcrumb: 'Add Fuel'},component:AddEditComponent},
+     {path:'edit/:id',  data: {breadcrumb: 'Edit Fuel'},component:AddEditComponent},
 
    ]},
 

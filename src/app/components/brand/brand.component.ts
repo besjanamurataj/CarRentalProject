@@ -14,7 +14,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { Brand } from 'src/app/core/models/brand';
 import { MESSAGE_DELETE_BRAND, MESSAGE_ERROR } from './brand.constant';
-import { error } from 'selenium-webdriver';
+
 
 @Component({
   selector: 'app-brand',
@@ -27,7 +27,9 @@ export class BrandComponent implements OnInit {
   constructor(
     private brandService: BrandService,
     private confirmationService: ConfirmationService,
-    private toastr:ToastrService
+    private toastr:ToastrService,
+
+
   ) {}
   ngOnInit() {
     this.getBrand();
@@ -63,5 +65,7 @@ export class BrandComponent implements OnInit {
       console.error(error);
     });
   }
+
+
 
 }
