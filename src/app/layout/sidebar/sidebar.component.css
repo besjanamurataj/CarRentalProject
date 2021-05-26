@@ -5,8 +5,10 @@
 }
 
 .sidebar {
-  width: 6.5rem;
-  min-height: 100vh;
+  width: 7.5rem;
+  min-height: 100%;
+  height: 100vh;
+  max-height: 100%;
 }
 
 .sidebar .nav-item {

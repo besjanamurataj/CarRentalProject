@@ -1,40 +1,22 @@
-
 <nav
-class="
-  navbar navbar-expand navbar-light
-  bg-white
-  topbar
-
-  static-top
-  shadow
-"
+  class="navbar navbar-expand navbar-light bg-white topbar static-top shadow"
 >
 
-<button
-  id="sidebarToggleTop"
-  class="btn btn-link d-md-none rounded-circle mr-3"
->
-  <i class="fa fa-bars">logout</i>
-</button>
-<ul class="navbar-nav ml-auto">
-  <li class="nav-item dropdown no-arrow mx-1">
-  </li>
-  <div class="topbar-divider d-none d-sm-block"></div>
-  <li class="nav-item dropdown no-arrow">
-    <a
-      class="nav-link dropdown-toggle"
-      href="#"
-      id="userDropdown"
-      role="button"
-      data-toggle="dropdown"
-      aria-haspopup="true"
-      aria-expanded="false"
-    >
-      <span class="mr-2  d-lg-inline text-gray-600 small"
-        >Logout</span
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item dropdown no-arrow mx-1"></li>
+    <div class="topbar-divider d-none d-sm-block"></div>
+    <li class="nav-item">
+      <a
+        href="#"
+        id="userDropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
       >
-    </a>
-
-  </li>
-</ul>
+      
+        <span class="mr-2 d-lg-inline text-gray-600 small" (click)="logout()"><i class="fa fa-sign-out-alt"></i></span>
+      </a>
+    </li>
+    <app-breadcrumb class="nav-item"></app-breadcrumb>
+  </ul>
 </nav>
