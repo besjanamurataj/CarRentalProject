@@ -6,8 +6,8 @@
       <tr>
         <th style="width: 30%">Name</th>
         <th style="width: 40%">
-          <a routerLink="add" class="btn btn-sm btn-success mb-2"
-            >Add</a
+          <a routerLink="add" class=" mb-2"
+            ><i class="fa fa-plus-circle"  style="color:green"></i></a
           >
         </th>
       </tr>
@@ -25,14 +25,14 @@
             >Details Model</a
           >
 
-          <a routerLink="edit/{{ item.id }}" class="btn btn-sm btn-primary mt-2"
-            >Edit</a
+          <a routerLink="edit/{{ item.id }}" class=" mt-2"
+            ><i class="fa fa-edit"></i></a
           >
           <a
             type="button"
             (click)="openConfirm(item)"
-            class="btn btn-sm btn-danger m-2"
-            >Delete</a
+            class="m-2"
+            ><i class="fa fa-trash"  style="color:red"></i></a
           >
         </td>
       </tr>

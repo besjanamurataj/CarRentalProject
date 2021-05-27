@@ -14,7 +14,7 @@
         </div>
         <div class="row mt-2">
           <div class="col">
-            <button class="btn btn-secondary" routerLink="/home/fueltype">
+            <button class="btn btn-secondary" [routerLink]="['/home/fueltype']">
               Cancel
             </button>
             <button class="btn btn-primary" [disabled]="fuelTypeForm.invalid" (click)="save()">Save</button>

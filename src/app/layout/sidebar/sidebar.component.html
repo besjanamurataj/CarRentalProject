@@ -1,20 +1,16 @@
-
-      <ul
-      class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
-      id="accordionSidebar"
-    >
-      <span class="sidebar-brand d-flex align-items-center justify-content-center">
-        <span class="sidebar-brand-text"> Dashboard</span>
-      </span>
-      <hr class="sidebar-divider my-0" />
-      <li class="nav-item" *ngFor="let item of items">
-        <a class="nav-link" [routerLink]="item.link" routerLinkActive="active">
-
-         <span>{{ item.label }}</span>
-        </a>
-        <hr class="sidebar-divider my-0" />
-      </li>
-    </ul>
-
- 
+<ul
+class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+id="accordionSidebar"
+>
+<span class="sidebar-brand d-flex align-items-center justify-content-center">
+  <span class="sidebar-brand-text"> Dashboard</span>
+</span>
+<hr class="sidebar-divider my-0" />
+<li class="nav-item" *ngFor="let item of items">
+  <a class="nav-link" [routerLink]="item.link" routerLinkActive="active">
+  <i class= "fa fa-trash" ></i> <span>{{ item.label }}</span>
+  </a>
+  <hr class="sidebar-divider my-0" />
+</li>
+</ul>
 

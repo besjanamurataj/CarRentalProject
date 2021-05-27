@@ -15,6 +15,7 @@ import {
   MESSAGE_ADD_FUELTYPE,
   MESSAGE_UPDATE_FUELTYPE,
 } from '../fueltype.constant';
+import { NavigationService } from 'src/app/core/service/navigation/navigation.service';
 
 @Component({
   selector: 'app-add-edit',
@@ -32,7 +33,8 @@ export class AddEditComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private title: Title,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private navigation:NavigationService
   ) {}
 
   ngOnInit(): void {
@@ -42,7 +44,10 @@ export class AddEditComponent implements OnInit {
       name: ['', Validators.required],
     });
     this.title.setTitle('Add');
-    this.getFuelType(this.id);
+    if(this.id){
+      this.getFuelType(this.id);
+    }
+
 
   }
   get name(): FormControl {
@@ -89,4 +94,5 @@ export class AddEditComponent implements OnInit {
        console.error(error);
     }
   }
+
 }

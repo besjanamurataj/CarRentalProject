@@ -10,7 +10,7 @@ import { AuthguardGuard } from './core/guards/authguard.guard';
 
 const routes: Routes = [
   {
-    path:'home',    data:{breadcrumb: 'Home'}, component:SidebarComponent,
+    path:'home',  data: { breadcrumb: 'Home' }, component:HomeComponent,
 
     canActivate:[AuthguardGuard],
     children:[
@@ -31,20 +31,19 @@ const routes: Routes = [
           (m) => m.FuelTypeModule
         ),
     },
-    {path:'brand', loadChildren:()=> import('./components/brand/brand.module').then(m=> m.BrandModule)},
+    {path:'brand', loadChildren:()=> import('./components/brand/brand.module').then(m=> m.BrandModule),
+},
     {path:'transmision', loadChildren:()=> import('./components/transmision-type/transmision.module').then(m =>m.TransmisionModule)},
     {path:'model/:id', component:ModelComponent,data:{breadcrumb: 'Brand Details'}},
     ]
   },
-
-
   { path: 'login',component:LoginComponent},
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,  { useHash: true })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

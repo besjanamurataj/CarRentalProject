@@ -95,8 +95,6 @@ getModelById(id){
   })
 }
 
-back(){
-  this.navigation.back();
-}
+
 
 }

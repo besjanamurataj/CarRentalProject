@@ -21,10 +21,6 @@ import { BreadcrumbModule } from 'angular-crumbs';
     CarModule,
     AccountModule,
     HttpClientModule,
-    // NgDynamicBreadcrumbModule,
-    BreadcrumbModule
-
-
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoginInterceptor, multi: true },

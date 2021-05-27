@@ -25,6 +25,9 @@ export class ModelComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
      this.title.setTitle(TITLE_MODEL);
+     if(this.id){
+       this.getModels(this.id);
+     }
 
   }
 
@@ -32,6 +35,8 @@ export class ModelComponent implements OnInit {
     this.modelService.getListById(id).subscribe(data =>{
       this.model = data;
      console.log(data);
+    }, (error) =>{
+      console.error(error);
     })
   }
 

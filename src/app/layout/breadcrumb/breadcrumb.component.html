@@ -1,7 +1,3 @@
-
-      <li *ngFor='let breadcrumb of breadcrumbs'>
-      Home/<a [routerLink]='[breadcrumb.url, breadcrumb.params]' routerLinkActive='active'>{{ breadcrumb.label }}</a>
-      </li>
-
-     
- 
+ <a [routerLink]="root" *ngFor="let breadcrumb of breadcrumbs$ | async">
+  {{ breadcrumb.label }}/
+</a>

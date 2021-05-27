@@ -1,4 +1,5 @@
 
+import { Location } from '@angular/common';
 import { TransmisiontypeService } from './../../../core/service/transmisiontype.service';
 import { Component, OnInit } from '@angular/core';
 import {
@@ -29,7 +30,8 @@ export class AddEditTransmisionComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private title: Title,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private location:Location
   ) {}
 
   ngOnInit(): void {
@@ -39,7 +41,7 @@ export class AddEditTransmisionComponent implements OnInit {
       name: ['', Validators.required],
     });
     this.title.setTitle('Add');
-    this.getTransmisions();
+
   }
   get name(): FormControl {
     return this.transmisionForm.get('name') as FormControl;
@@ -74,18 +76,5 @@ export class AddEditTransmisionComponent implements OnInit {
       (error) => {
         console.error(error);
       };
-  }
-
-  getTransmisions() {
-    this.transmisionService.getAll().subscribe((data) => {
-      console.log(data);
-      this.transmisionsArr = data;
-      this.transmisionForm.patchValue({
-        transArray :this.transmisionsArr.filter(
-          (element) => element.id == this.TransmisionId
-        ),
-
-      })
-    });
   }
 }

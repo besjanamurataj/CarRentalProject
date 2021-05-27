@@ -12,6 +12,9 @@ export const items:Array<SidebarItems> =[
   {
     link:'/home/model',
     label:'Model',
+    icon: '<i class="fa fa-address-card"></i>'
+
+
 
   },
   {

@@ -1,3 +1,4 @@
+import { NavigationService } from './../../../core/service/navigation/navigation.service';
 import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
@@ -33,6 +34,7 @@ export class AddEditBrandComponent implements OnInit {
     private title: Title,
     private toastr: ToastrService,
     private location:Location,
+    private navigation:NavigationService
   ) {}
 
   ngOnInit(): void {
@@ -92,8 +94,7 @@ export class AddEditBrandComponent implements OnInit {
         console.error(error);
      }
     }
-
-    goBack(){
-      this.location.back();
-    }
+  //  goBack(){
+  //     this.navigation.back();
+  //   }
 }
