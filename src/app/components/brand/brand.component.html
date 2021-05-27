@@ -17,23 +17,25 @@
         <td>{{ item.name }}</td>
 
         <td style="white-space: nowrap">
-          <i class="bi bi-trash"></i> <a
-
-            type="button"
-            class="btn btn-sm btn-danger m-2"
-            [routerLink]="['/home/model', item.id]"
-            >Details Model</a
-          >
-
-          <a routerLink="edit/{{ item.id }}" class=" mt-2"
-            ><i class="fa fa-edit"></i></a
-          >
           <a
+          type="button"
+          (click)="openConfirm(item)"
+          class="m-2"
+          ><i class="fa fa-trash"  style="color:red"></i></a
+        >
+        <a routerLink="edit/{{ item.id }}" class=" mt-2"
+        ><i class="fa fa-edit"></i></a
+      >
+         <a
+
             type="button"
-            (click)="openConfirm(item)"
-            class="m-2"
-            ><i class="fa fa-trash"  style="color:red"></i></a
+              class="m-2" 
+            [routerLink]="['/home/model', item.id]"
+            ><i class="fa fa-eye"></i></a
           >
+
+        
+       
         </td>
       </tr>
     </tbody>

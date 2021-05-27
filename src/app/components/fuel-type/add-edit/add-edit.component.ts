@@ -54,11 +54,17 @@ export class AddEditComponent implements OnInit {
     return this.fuelTypeForm.get('name') as FormControl;
   }
   save() {
-    if (this.isAddModal) {
-      this.createFuelType();
-    } else {
-      this.updateFuelType();
+
+    if(this.name.hasError('required')){
+      this.toastr.error('Put the value');
+    }else{
+      if (this.isAddModal) {
+        this.createFuelType();
+      } else {
+        this.updateFuelType();
+      }
     }
+   
   }
 
   createFuelType() {

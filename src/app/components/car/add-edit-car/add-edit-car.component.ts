@@ -112,11 +112,18 @@ export class AddEditCarComponent implements OnInit {
   }
 
   save() {
-    if (this.isAddModal) {
-      this.createCar();
-    } else {
-      this.updateCar();
+    if(this.brand.hasError('required')||this.fuelType.hasError('required')|| this.transmisionType.hasError('required')||this.number.hasError('required')
+    ||this.carColor.hasError('required')|| this.numberOfDoors.hasError('required')||this.carCapacity.hasError('required')
+    ||this.model.hasError('required')|| this.priceForDay.hasError('required')||this.carLocation.hasError('required')){
+    this.toastr.error('Put value');
+    }else{
+      if (this.isAddModal) {
+        this.createCar();
+      } else {
+        this.updateCar();
+      }
     }
+  
   }
   createCar() {
     this.carService.create(this.carForm.value).subscribe(

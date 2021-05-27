@@ -48,10 +48,16 @@ export class AddEditTransmisionComponent implements OnInit {
   }
 
   save() {
-    if (this.isAddModal) {
-      this.createTransmision();
-    } else {
-      this.updateTransmision();
+
+   
+    if(this.name.hasError('required')){
+      this.toastr.error('Put the value');
+    }else{
+      if (this.isAddModal) {
+        this.createTransmision();
+      } else {
+        this.updateTransmision();
+      }
     }
   }
   createTransmision() {
@@ -59,7 +65,7 @@ export class AddEditTransmisionComponent implements OnInit {
       (data) => {
         console.log(data);
         this.toastr.success('Transmision add ');
-        this.router.navigate(['/home/transmision'], { relativeTo: this.route });
+        this.router.navigate(['/home/transmision'], { relativeTo: this.route,  queryParams: {id: this.TransmisionId , action: 'create'}});
       },
       (error) => {
         console.error(error);
@@ -67,11 +73,30 @@ export class AddEditTransmisionComponent implements OnInit {
     );
   }
   updateTransmision() {
+    //njera zgjidhje eshte kjo qe  do bej tn ktu
+    // esht me normale
+    //tjetra esht ajo me activated rooute
+
     this.transmisionService
       .update(this.TransmisionId, this.transmisionForm.value)
       .subscribe((data) => {
         this.toastr.success('Edit succefull');
-        this.router.navigate(['/home/transmision'], { relativeTo: this.route });
+       if (localStorage.getItem('data') != null)   {
+         let array =( JSON.parse(localStorage.getItem('data')) as TrasmisionType[])
+         array.map(el => {
+            if (el.id ==this.TransmisionId ){
+              console.log('enters')
+              el =data
+              console.log(data)
+              return data;
+            }
+            // tn i bie do ndryshoj me id 
+            //pri ta mendoj pak
+            // se u trahsa :P
+          })
+          setTimeout(el=>{console.log((array))},500)
+       }
+        this.router.navigate(['/home/transmision'], { relativeTo: this.route, queryParams: {id: this.TransmisionId , action: 'update' }});
       }),
       (error) => {
         console.error(error);

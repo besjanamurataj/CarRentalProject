@@ -11,8 +11,8 @@
            <tr *ngFor="let item of model">
               <td>{{item.name}}</td>
               <td style="white-space: nowrap">
-                  <a routerLink ="/home/model/edit/{{item.id}}" class="btn btn-sm btn-primary mr-1" (click)="getModels(item.id)"><i class="fa fa-edit"></i></a>
-                  <a  class="btn btn-sm btn-danger btn-delete-user ml-2"(click)="openConfirmation(item)">
+                  <a routerLink ="/home/model/edit/{{item.id}}" class=" m-2" (click)="getModels(item.id)"><i class="fa fa-edit"></i></a>
+                  <a  class=" mt-2"(click)="openConfirmation(item)">
                     <i class="fa fa-trash" style="color: red;"></i>
                   </a>
               </td>

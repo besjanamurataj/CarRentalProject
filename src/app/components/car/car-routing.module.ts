@@ -6,12 +6,12 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
+    path: '',  data: {breadcrumb: ''},
     component: LayoutComponent,
     children: [
-      { path: '', component: CarComponent },
-      { path: 'add', component: AddEditCarComponent },
-      { path: 'edit/:id', component: AddEditCarComponent },
+      { path: '',  data: {breadcrumb:""}, component: CarComponent },
+      { path: 'add', data: {breadcrumb: 'Add'}, component: AddEditCarComponent },
+      { path: 'edit/:id', data: {breadcrumb: 'Edit Car'}, component: AddEditCarComponent },
     ],
   },
 ];

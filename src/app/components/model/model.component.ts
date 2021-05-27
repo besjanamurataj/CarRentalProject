@@ -30,7 +30,6 @@ export class ModelComponent implements OnInit {
      }
 
   }
-
   getModels(id){
     this.modelService.getListById(id).subscribe(data =>{
       this.model = data;

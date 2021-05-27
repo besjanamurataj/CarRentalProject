@@ -22,9 +22,12 @@ export class BreadcrumbsService {
   }
   private addBreadcrumb(route: ActivatedRouteSnapshot, breadcrumbs: BreadCrumb[]) {
     if (route) {
+      console.log(route);
+      
       if (route.data.breadcrumb) {
         const breadcrumb = {
-          label: this.getLabel(route.data)
+          label: this.getLabel(route.data),
+          route:route.url[0].path,
         };
         breadcrumbs.push(breadcrumb);
       }

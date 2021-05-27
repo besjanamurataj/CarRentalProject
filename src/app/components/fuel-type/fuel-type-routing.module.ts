@@ -6,13 +6,9 @@ import { LayoutComponent } from './layout/layout.component';
 import { AddEditComponent } from './add-edit/add-edit.component';
 
 const routes: Routes = [
-  {path:'', data: {breadcrumb: 'FuelType'},component:LayoutComponent,
+  {path:'', data: {breadcrumb: ''},component:LayoutComponent,
    children:[
-<<<<<<< HEAD
        {path:'', data: {breadcrumb: null}, component:FuelTypeComponent},
-=======
-      {path:'', data: {breadcrumb: "FuelType"}, component:FuelTypeComponent},
->>>>>>> f96454dd0603369a800d3660c087ab79b35fe784
      {path:'add',  data: {breadcrumb: 'Add Fuel'},component:AddEditComponent},
      {path:'edit/:id',  data: {breadcrumb: 'Edit Fuel'},component:AddEditComponent},
 

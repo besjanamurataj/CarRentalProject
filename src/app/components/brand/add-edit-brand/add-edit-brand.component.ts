@@ -54,11 +54,19 @@ export class AddEditBrandComponent implements OnInit {
   }
 
   save() {
+     
+    if(this.name.hasError('name')){
+      this.toastr.error('Put the value')
+    }
+
+  else{
     if (this.isAddModal) {
       this.createBrand();
     } else {
       this.updateBrand();
     }
+  }
+ 
   }
   createBrand() {
     this.brandService.create(this.brandForm.value).subscribe(

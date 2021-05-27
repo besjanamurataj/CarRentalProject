@@ -20,12 +20,7 @@ import { BreadcrumbModule } from 'angular-crumbs';
     CarModule,
     AccountModule,
     HttpClientModule,
-<<<<<<< HEAD
-=======
     BreadcrumbModule
-
-
->>>>>>> f96454dd0603369a800d3660c087ab79b35fe784
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoginInterceptor, multi: true },

@@ -8,7 +8,7 @@ id="accordionSidebar"
 <hr class="sidebar-divider my-0" />
 <li class="nav-item" *ngFor="let item of items">
   <a class="nav-link" [routerLink]="item.link" routerLinkActive="active">
-  <i class= "fa fa-trash" ></i> <span>{{ item.label }}</span>
+  <i [ngClass] ="item.icon" ></i> <span>{{ item.label }}</span>
   </a>
   <hr class="sidebar-divider my-0" />
 </li>

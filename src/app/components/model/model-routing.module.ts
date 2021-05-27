@@ -7,9 +7,9 @@ import { ModelComponent } from './model.component';
 
 
 const routes: Routes = [
-  {path:"",  data: {breadcrumb: 'Model'},  component:LayoutComponent,
+  {path:"",  data: {breadcrumb: ''},  component:LayoutComponent,
   children:[
-    {path:'', data: {breadcrumb: null}, component:ModelComponent},
+    {path:'', data: {breadcrumb: ""}, component:ModelComponent},
     {path:'add',  data: {breadcrumb: 'Add Model'}, component:AddEditModelComponent},
     {path:'edit/:id', data: {breadcrumb: 'Add Model'}, component:AddEditModelComponent}
 

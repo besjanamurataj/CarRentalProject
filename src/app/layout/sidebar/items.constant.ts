@@ -6,13 +6,12 @@ export const items:Array<SidebarItems> =[
   {
     link:'/home/fueltype',
     label:'Fuel Type',
-
-
+    icon:"fas fa-gas-pump"
   },
   {
     link:'/home/model',
     label:'Model',
-    icon: '<i class="fa fa-address-card"></i>'
+    icon:"fa fa-address-card"
 
 
 
@@ -20,16 +19,19 @@ export const items:Array<SidebarItems> =[
   {
     link:'/home/car',
     label:'Car',
+    icon: 'fa fa-car'
 
   },
   {
     link:'/home/brand',
     label:'Brand',
+    icon:"fa fa-bandcamp"
 
   },
     {
       link:'/home/transmision',
      label:'Transmitions',
+     icon:"fa fa-cog"
 
     },
 

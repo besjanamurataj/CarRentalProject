@@ -23,6 +23,11 @@ export class TransmisiontypeService {
   }
 
   update(id, trasmision) {
-    return this.http.put<TrasmisionType>(`${baseUrl + '/edit'}/${id}`,trasmision);
+    debugger
+   let test= {
+     Id: id,
+     Name: trasmision.name
+   }
+    return this.http.put<TrasmisionType>(`${baseUrl + '/edit'}/${id}`,test);
   }
 }

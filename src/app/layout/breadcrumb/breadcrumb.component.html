@@ -1,3 +1,4 @@
- <a [routerLink]="root" *ngFor="let breadcrumb of breadcrumbs$ | async">
-  {{ breadcrumb.label }}/
+ <a  *ngFor="let breadcrumb of breadcrumbs$ | async" [routerLink]="breadcrumb.route">
+  {{ breadcrumb.label }}
 </a>
+

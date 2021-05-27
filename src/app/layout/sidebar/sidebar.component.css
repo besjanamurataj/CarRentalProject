@@ -29,57 +29,6 @@
   font-size: 0.65rem;
   display: block;
 }
-/*
-.sidebar .nav-item.active .nav-link {
-  font-weight: 700;
-}
-
-.sidebar .nav-item .collapse {
-  position: absolute;
-  left: calc(6.5rem + 1.5rem / 2);
-  z-index: 1;
-  top: 2px;
-}
-
-.sidebar .nav-item .collapse .collapse-inner {
-  border-radius: 0.35rem;
-  box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
-}
-
-.sidebar .nav-item .collapsing {
-  display: none;
-  transition: none;
-}
-
-.sidebar .nav-item .collapse .collapse-inner,
-.sidebar .nav-item .collapsing .collapse-inner {
-  padding: 0.5rem 0;
-  min-width: 10rem;
-  font-size: 0.85rem;
-  margin: 0 0 1rem 0;
-}
-
-/* .sidebar .nav-item .collapse .collapse-inner .collapse-header,
-.sidebar .nav-item .collapsing .collapse-inner .collapse-header {
-  margin: 0;
-  white-space: nowrap;
-  padding: 0.5rem 1.5rem;
-  text-transform: uppercase;
-  font-weight: 800;
-  font-size: 0.65rem;
-  color: #b7b9cc;
-}
-
-.sidebar .nav-item .collapse .collapse-inner .collapse-item,
-.sidebar .nav-item .collapsing .collapse-inner .collapse-item {
-  padding: 0.5rem 1rem;
-  margin: 0 0.5rem;
-  display: block;
-  color: #3a3b45;
-  text-decoration: none;
-  border-radius: 0.35rem;
-  white-space: nowrap;
-} */
 
 .sidebar #sidebarToggle {
   width: 2.5rem;

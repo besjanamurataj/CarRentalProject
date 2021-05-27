@@ -49,13 +49,19 @@ export class AddEditModelComponent implements OnInit {
     return this.modelForm.get('name') as FormControl
   }
   save(){
-    if(this.isAddModal)
-    {
-      this.createModel();
+    if(this.name.hasError('required')||(this.brandId.hasError('required')) ){
+      this.toastr.error("Put the value")
     }
     else{
-      this.updateModel();
+      if(this.isAddModal)
+      {
+        this.createModel();
+      }
+      else{
+        this.updateModel();
+      }
     }
+ 
   }
 
   getListBrand(){
@@ -81,7 +87,7 @@ updateModel(){
     this.router.navigate(['/home/model'], { relativeTo: this.route });
     console.log(data);
   }), (error) =>{
-    console.error(error);
+     this.toastr.error("lflf");
   }
 }
 

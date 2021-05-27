@@ -7,46 +7,60 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './account/login/login.component';
 import { AuthguardGuard } from './core/guards/authguard.guard';
 
-
 const routes: Routes = [
   {
-    path:'home',  data: { breadcrumb: 'Home' }, component:HomeComponent,
+    path: 'home',
+    data: { breadcrumb: 'Home' },
+    component: HomeComponent,
 
-    canActivate:[AuthguardGuard],
-    children:[
+    canActivate: [AuthguardGuard],
+    children: [
       {
         path: 'car',
         data: { breadcrumb: 'Car' },
-      loadChildren: () =>
-         import('./components/car/car.module').then(m => m.CarModule),
+        loadChildren: () =>
+          import('./components/car/car.module').then((m) => m.CarModule),
       },
-     {
-       path: 'model',
-       data: { breadcrumb: 'Model' },
-      loadChildren: () =>
-       import('./components/model/model.module').then((m) => m.ModelModule),
-   },
-    {
-      path: 'fueltype',
-      data: { breadcrumb: 'FuelType' },
-      loadChildren: () =>
-        import('./components/fuel-type/fuel-type.module').then(
-          (m) => m.FuelTypeModule
-        ),
-    },
-    {path:'brand', loadChildren:()=> import('./components/brand/brand.module').then(m=> m.BrandModule),
-},
-    {path:'transmision', loadChildren:()=> import('./components/transmision-type/transmision.module').then(m =>m.TransmisionModule)},
-    {path:'model/:id', component:ModelComponent,data:{breadcrumb: 'Brand Details'}},
-    ]
+      {
+        path: 'model',
+        data: { breadcrumb: 'Model' },
+        loadChildren: () =>
+          import('./components/model/model.module').then((m) => m.ModelModule),
+      },
+      {
+        path: 'fueltype',
+        data: { breadcrumb: 'FuelType' },
+        loadChildren: () =>
+          import('./components/fuel-type/fuel-type.module').then(
+            (m) => m.FuelTypeModule
+          ),
+      },
+      {
+        path: 'brand',
+        loadChildren: () =>
+          import('./components/brand/brand.module').then((m) => m.BrandModule),
+      },
+      {
+        path: 'transmision',
+        loadChildren: () =>
+          import('./components/transmision-type/transmision.module').then(
+            (m) => m.TransmisionModule
+          ),
+      },
+      {
+        path: 'model/:id',
+        component: ModelComponent,
+        data: { breadcrumb: 'Brand Details' },
+      },
+    ],
   },
-  { path: 'login',component:LoginComponent},
+  { path: 'login', component: LoginComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,  { useHash: true })],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
