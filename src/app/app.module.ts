@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginInterceptor } from './core/interceptor/login.interceptor';
 import { BreadcrumbModule } from 'angular-crumbs';
-// import { NgDynamicBreadcrumbModule } from 'ng-dynamic-breadcrumb';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,7 +20,6 @@ import { BreadcrumbModule } from 'angular-crumbs';
     CarModule,
     AccountModule,
     HttpClientModule,
-    // NgDynamicBreadcrumbModule,
     BreadcrumbModule
 
 

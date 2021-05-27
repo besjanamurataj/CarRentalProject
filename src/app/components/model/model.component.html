@@ -4,16 +4,16 @@
       <thead>
           <tr>
               <th>Name</th>
-              <th><a routerLink ="/home/model/add" class="btn btn-sm btn-success mb-2">Add</a></th>
+              <th><a routerLink ="/home/model/add" class=" mb-2"><i class="fa fa-plus-circle" style="color: green;"></i></a></th>
           </tr>
       </thead>
       <tbody>
            <tr *ngFor="let item of model">
               <td>{{item.name}}</td>
               <td style="white-space: nowrap">
-                  <a routerLink ="/home/model/edit/{{item.id}}" class="btn btn-sm btn-primary mr-1" (click)="getModels(item.id)">Edit</a>
+                  <a routerLink ="/home/model/edit/{{item.id}}" class="btn btn-sm btn-primary mr-1" (click)="getModels(item.id)"><i class="fa fa-edit"></i></a>
                   <a  class="btn btn-sm btn-danger btn-delete-user ml-2"(click)="openConfirmation(item)">
-                   Delete
+                    <i class="fa fa-trash" style="color: red;"></i>
                   </a>
               </td>
               </tr>

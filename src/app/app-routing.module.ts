@@ -10,22 +10,25 @@ import { AuthguardGuard } from './core/guards/authguard.guard';
 
 const routes: Routes = [
   {
-    path:'home',    data:{breadcrumb: 'Home'}, component:SidebarComponent,
+    path:'home',  data: { breadcrumb: 'Home' }, component:HomeComponent,
 
     canActivate:[AuthguardGuard],
     children:[
       {
         path: 'car',
+        data: { breadcrumb: 'Car' },
       loadChildren: () =>
          import('./components/car/car.module').then(m => m.CarModule),
       },
      {
        path: 'model',
+       data: { breadcrumb: 'Model' },
       loadChildren: () =>
        import('./components/model/model.module').then((m) => m.ModelModule),
    },
     {
       path: 'fueltype',
+      data: { breadcrumb: 'FuelType' },
       loadChildren: () =>
         import('./components/fuel-type/fuel-type.module').then(
           (m) => m.FuelTypeModule
