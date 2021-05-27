@@ -6,6 +6,13 @@ h2{
   text-align: center;
 }
 i{
+<<<<<<< HEAD
   text-shadow: 1px 1px 1px #ccc;
   font-size: 1.5em;
 }
+=======
+
+  text-shadow: 1px 1px 1px #ccc;
+  font-size: 1.7em;
+}
+>>>>>>> f96454dd0603369a800d3660c087ab79b35fe784

@@ -16,16 +16,19 @@ const routes: Routes = [
     children:[
       {
         path: 'car',
+        data: { breadcrumb: 'Car' },
       loadChildren: () =>
          import('./components/car/car.module').then(m => m.CarModule),
       },
      {
        path: 'model',
+       data: { breadcrumb: 'Model' },
       loadChildren: () =>
        import('./components/model/model.module').then((m) => m.ModelModule),
    },
     {
       path: 'fueltype',
+      data: { breadcrumb: 'FuelType' },
       loadChildren: () =>
         import('./components/fuel-type/fuel-type.module').then(
           (m) => m.FuelTypeModule

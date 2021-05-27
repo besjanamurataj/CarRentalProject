@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginInterceptor } from './core/interceptor/login.interceptor';
 import { BreadcrumbModule } from 'angular-crumbs';
-// import { NgDynamicBreadcrumbModule } from 'ng-dynamic-breadcrumb';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,6 +20,12 @@ import { BreadcrumbModule } from 'angular-crumbs';
     CarModule,
     AccountModule,
     HttpClientModule,
+<<<<<<< HEAD
+=======
+    BreadcrumbModule
+
+
+>>>>>>> f96454dd0603369a800d3660c087ab79b35fe784
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoginInterceptor, multi: true },
