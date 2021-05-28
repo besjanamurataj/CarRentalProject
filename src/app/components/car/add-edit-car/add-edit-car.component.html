@@ -28,11 +28,8 @@
               <option *ngFor="let brand of fuelArray " [value]="brand.id"> {{brand.name}}  </option>
             </select>
           </div>
-
         </div>
-
         <div class="row">
-
           <div class="col-sm-6">
             <label  class="form-label"> Enter a model</label>
             <select  class="form-control" id="category" formControlName="model">
@@ -46,7 +43,6 @@
              <div *ngIf="model.errors.required">Model is required *.</div>
           </div>
           </div>
-
           <div class="col-sm-6">
             <label for="" class="form-label"> Enter a transmisionType</label>
          <select name="" class="form-control" id="category"> -->
@@ -130,8 +126,6 @@
           </div>
           </div>
         </div>
-
-
         <div class="row">
           <div class="col-sm-6">
             <label for="" class="form-label"> Enter a priceForDay</label>
@@ -147,11 +141,9 @@
              <div *ngIf="priceForDay.errors.required">CarColor is required *.</div>
           </div>
           </div>
-
           <div class="col-sm-6">
             <label for="" class="form-label"> Enter a CarLocation</label>
             <input
-
               type="text"
               class="form-control"
               formControlName="carLocation"
@@ -162,14 +154,12 @@
           >
              <div *ngIf="carLocation.errors.required">CarLocation is required *.</div>
           </div>
-
           </div>
           <div class="col-sm-6">
             <label for="" class="form-label"> Enter a Description</label>
             <input
               type="text"
               class="form-control"
-
               formControlName="description"
             />
           </div>

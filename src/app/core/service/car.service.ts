@@ -13,7 +13,7 @@ export class CarService {
 constructor(private http: HttpClient) {}
 
   getCar(): Observable<Car[]> {
-    const opts = { params: new HttpParams({fromString: "PageNumber=1&PageSize=1"})};
+    const opts = { params: new HttpParams({fromString: "PageNumber=1&PageSize=2"})};
     return this.http.get<Car[]>(baseUrl + '/cars',opts);
   }
   create(car: Car) {

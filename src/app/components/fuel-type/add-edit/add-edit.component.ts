@@ -1,3 +1,4 @@
+
 import { error } from 'selenium-webdriver';
 import { ToastrService } from 'src/app/core/service/toastr.service';
 import { FuelType } from 'src/app/core/models/fuelType';
@@ -13,6 +14,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import {
   MESSAGE_ADD_FUELTYPE,
+  MESSAGE_ERROR,
   MESSAGE_UPDATE_FUELTYPE,
 } from '../fueltype.constant';
 import { NavigationService } from 'src/app/core/service/navigation/navigation.service';
@@ -64,18 +66,18 @@ export class AddEditComponent implements OnInit {
         this.updateFuelType();
       }
     }
-   
+
   }
 
   createFuelType() {
     this.fuelService.create(this.fuelTypeForm.value).subscribe(
       (data) => {
         this.toastr.success(MESSAGE_ADD_FUELTYPE);
-        this.router.navigate(['/home/fueltype'], { relativeTo: this.route });
-        console.log(data);
+        this.router.navigate(['/home/fueltype'], { relativeTo: this.route, queryParams: {id: this.id , action: 'create' }});
+
       },
       (error) => {
-        console.error(error);
+       this.toastr.error(MESSAGE_ERROR);
       }
     );
   }
@@ -84,10 +86,22 @@ export class AddEditComponent implements OnInit {
       .update(this.id, this.fuelTypeForm.value)
       .subscribe((data) => {
         this.toastr.success(MESSAGE_UPDATE_FUELTYPE);
-        this.router.navigate(['/home/fueltype'], { relativeTo: this.route });
+        if (localStorage.getItem('transmision') != null)   {
+          let array =( JSON.parse(localStorage.getItem('data')) as FuelType[])
+          array.map(el => {
+             if (el.id ==this.id ){
+
+               el =data
+
+               return data;
+             }
+           })
+
+        }
+        this.router.navigate(['/home/fueltype'],{ relativeTo: this.route, queryParams: {id: this.id , action: 'update' }});
       }),
       (error) => {
-        console.error(error);
+        this.toastr.error(MESSAGE_ERROR)
       };
   }
 
@@ -97,7 +111,7 @@ export class AddEditComponent implements OnInit {
        name:data.name
      })
     }),(error)=>{
-       console.error(error);
+       this.toastr.error(MESSAGE_ERROR);
     }
   }
 

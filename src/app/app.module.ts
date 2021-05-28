@@ -8,7 +8,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginInterceptor } from './core/interceptor/login.interceptor';
-import { BreadcrumbModule } from 'angular-crumbs';
+import { BreadcrumbModule} from 'angular-crumbs';
+
 
 @NgModule({
   declarations: [AppComponent],

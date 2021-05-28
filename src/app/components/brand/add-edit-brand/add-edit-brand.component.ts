@@ -1,4 +1,6 @@
-import { NavigationService } from './../../../core/service/navigation/navigation.service';
+import { MESSAGE_ERROR } from './../../model/model.constants';
+import { Brand } from './../../../core/models/brand';
+
 import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
@@ -12,11 +14,10 @@ import { BrandService } from 'src/app/core/service/brand.service';
 import { ToastrService } from 'src/app/core/service/toastr.service';
 import {
   MESSAGE_ADD_BRAND,
-
   MESSAGE_UPDATE_BRAND,
   TITLE_BRAND,
 } from '../brand.constant';
-import { Location } from '@angular/common';
+
 @Component({
   selector: 'app-add-edit-brand',
   templateUrl: './add-edit-brand.component.html',
@@ -32,9 +33,7 @@ export class AddEditBrandComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private title: Title,
-    private toastr: ToastrService,
-    private location:Location,
-    private navigation:NavigationService
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -44,7 +43,7 @@ export class AddEditBrandComponent implements OnInit {
       name: ['', Validators.required],
     });
     this.title.setTitle(TITLE_BRAND);
-    if(this.id){
+    if (this.id) {
       this.getBrandById(this.id);
     }
   }
@@ -52,31 +51,25 @@ export class AddEditBrandComponent implements OnInit {
   get name(): FormControl {
     return this.brandForm.get('name') as FormControl;
   }
-
   save() {
-     
-    if(this.name.hasError('name')){
-      this.toastr.error('Put the value')
-    }
-
-  else{
-    if (this.isAddModal) {
-      this.createBrand();
+    if (this.name.hasError('name')) {
+      this.toastr.error('Put the value');
     } else {
-      this.updateBrand();
+      if (this.isAddModal) {
+        this.createBrand();
+      } else {
+        this.updateBrand();
+      }
     }
-  }
- 
   }
   createBrand() {
     this.brandService.create(this.brandForm.value).subscribe(
       (data) => {
         this.toastr.success(MESSAGE_ADD_BRAND);
-        this.router.navigate(['/home/brand'], { relativeTo: this.route });
-        console.log(data);
+        this.router.navigate(['/home/brand'], { relativeTo: this.route,  queryParams: {id: this.id , action: 'create'}});
       },
       (error) => {
-        this.toastr.error(error);
+        this.toastr.error(MESSAGE_ERROR);
       }
     );
   }
@@ -85,24 +78,32 @@ export class AddEditBrandComponent implements OnInit {
       .update(this.id, this.brandForm.value)
       .subscribe((data) => {
         this.toastr.success(MESSAGE_UPDATE_BRAND);
-        this.router.navigate(['/home/brand'], { relativeTo: this.route });
+        if (localStorage.getItem('data') != null) {
+          let array = JSON.parse(localStorage.getItem('data')) as Brand[];
+          array.map((el) => {
+            if (el.id == this.id) {
+              el = data;
+              return data;
+            }
+          });
+        }
+        this.router.navigate(['/home/brand'], {
+          relativeTo: this.route,
+          queryParams: { id: this.id, action: 'update' },
+        });
       }),
       (error) => {
-        this.toastr.error(error);
+        this.toastr.error(MESSAGE_ERROR);
       };
   }
-
-
-  getBrandById(id){
-    this.brandService.getElementById(this.id).subscribe(data =>{
+  getBrandById(id) {
+    this.brandService.getElementModelById(this.id).subscribe(data => {
       this.brandForm.patchValue({
-       name:data.name
-    })
-     }),(error)=>{
-        console.error(error);
-     }
-    }
-  //  goBack(){
-  //     this.navigation.back();
-  //   }
+        name: data.name,
+      });
+    }),
+      (error) => {
+        this.toastr.error(MESSAGE_ERROR);
+      };
+  }
 }

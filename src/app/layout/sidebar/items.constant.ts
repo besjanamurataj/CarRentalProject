@@ -6,7 +6,7 @@ export const items:Array<SidebarItems> =[
   {
     link:'/home/fueltype',
     label:'Fuel Type',
-    icon:"fas fa-gas-pump"
+    icon:"fa fa-cog"
   },
   {
     link:'/home/model',
@@ -32,6 +32,13 @@ export const items:Array<SidebarItems> =[
       link:'/home/transmision',
      label:'Transmitions',
      icon:"fa fa-cog"
+
+    },
+    {
+      link:'/home/location',
+     label:'Location',
+     icon:"fa fa-location-arrow"
+
 
     },
 

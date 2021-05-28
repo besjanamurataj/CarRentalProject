@@ -6,9 +6,9 @@ import { LayoutComponent } from './layout/layout.component';
 import { AddEditComponent } from './add-edit/add-edit.component';
 
 const routes: Routes = [
-  {path:'', data: {breadcrumb: ''},component:LayoutComponent,
+  {path:'', data: {breadcrumb: 'FuelType'},component:LayoutComponent,
    children:[
-       {path:'', data: {breadcrumb: null}, component:FuelTypeComponent},
+       {path:'',component:FuelTypeComponent},
      {path:'add',  data: {breadcrumb: 'Add Fuel'},component:AddEditComponent},
      {path:'edit/:id',  data: {breadcrumb: 'Edit Fuel'},component:AddEditComponent},
 

@@ -112,33 +112,50 @@ export class AddEditCarComponent implements OnInit {
   }
 
   save() {
-    if(this.brand.hasError('required')||this.fuelType.hasError('required')|| this.transmisionType.hasError('required')||this.number.hasError('required')
-    ||this.carColor.hasError('required')|| this.numberOfDoors.hasError('required')||this.carCapacity.hasError('required')
-    ||this.model.hasError('required')|| this.priceForDay.hasError('required')||this.carLocation.hasError('required')){
-    this.toastr.error('Put value');
-    }else{
+    // if(this.brand.hasError('required')||this.fuelType.hasError('required')|| this.transmisionType.hasError('required')||this.number.hasError('required')
+    // ||this.carColor.hasError('required')|| this.numberOfDoors.hasError('required')||this.carCapacity.hasError('required')
+    // ||this.model.hasError('required')|| this.priceForDay.hasError('required')||this.carLocation.hasError('required')){
+
+    //this.toastr.error('Put value');
+    // }
+    // else
+    {
       if (this.isAddModal) {
         this.createCar();
       } else {
         this.updateCar();
       }
     }
-  
+
   }
   createCar() {
     this.carService.create(this.carForm.value).subscribe(
       (data) => {
         console.log(this.carForm.value);
         console.log(data);
-        this.router.navigate(['/home/car'], { relativeTo: this.route });
+        this.router.navigate(['/home/car'], { relativeTo: this.route, queryParams: {id: this.id , action: 'create' }});
         this.toastr.success(MESSAGE_ADD_CAR);
       },
     );
   }
+
+
   updateCar() {
     this.carService.update(this.id, this.carForm.value).subscribe((data) => {
-      this.router.navigate(['/home/car'], { relativeTo: this.route });
-      console.log(data);
+      this.toastr.success(MESSAGE_ADD_CAR);
+
+      if (localStorage.getItem('data') != null)   {
+        let array =( JSON.parse(localStorage.getItem('data')) as Car[])
+        array.map(el => {
+           if (el.id ==this.id ){
+
+             el =data
+             return data;
+           }
+         })
+
+      }
+      this.router.navigate(['/home/car'],  { relativeTo: this.route, queryParams: {id: this.id , action: 'update' }});
     }), (error) =>{
       console.error(error);
     };

@@ -21,3 +21,7 @@ h3 {
   text-align: center;
   padding-bottom: 12px;
 }
+
+.col {
+  text-align: right;
+}

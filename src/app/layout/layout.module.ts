@@ -19,7 +19,7 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
   ],
   imports: [
     CommonModule,
-    RouterModule 
+    RouterModule
   ],
   exports:[
     SidebarComponent,

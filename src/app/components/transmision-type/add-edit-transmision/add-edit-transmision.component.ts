@@ -31,7 +31,6 @@ export class AddEditTransmisionComponent implements OnInit {
     private route: ActivatedRoute,
     private title: Title,
     private toastr: ToastrService,
-    private location:Location
   ) {}
 
   ngOnInit(): void {
@@ -49,7 +48,7 @@ export class AddEditTransmisionComponent implements OnInit {
 
   save() {
 
-   
+
     if(this.name.hasError('required')){
       this.toastr.error('Put the value');
     }else{
@@ -73,28 +72,21 @@ export class AddEditTransmisionComponent implements OnInit {
     );
   }
   updateTransmision() {
-    //njera zgjidhje eshte kjo qe  do bej tn ktu
-    // esht me normale
-    //tjetra esht ajo me activated rooute
 
     this.transmisionService
       .update(this.TransmisionId, this.transmisionForm.value)
       .subscribe((data) => {
         this.toastr.success('Edit succefull');
-       if (localStorage.getItem('data') != null)   {
+       if (localStorage.getItem('transmisionData') != null)   {
          let array =( JSON.parse(localStorage.getItem('data')) as TrasmisionType[])
          array.map(el => {
             if (el.id ==this.TransmisionId ){
-              console.log('enters')
               el =data
-              console.log(data)
+
               return data;
             }
-            // tn i bie do ndryshoj me id 
-            //pri ta mendoj pak
-            // se u trahsa :P
           })
-          setTimeout(el=>{console.log((array))},500)
+
        }
         this.router.navigate(['/home/transmision'], { relativeTo: this.route, queryParams: {id: this.TransmisionId , action: 'update' }});
       }),

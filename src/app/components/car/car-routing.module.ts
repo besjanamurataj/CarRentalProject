@@ -10,7 +10,7 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       { path: '',  data: {breadcrumb:""}, component: CarComponent },
-      { path: 'add', data: {breadcrumb: 'Add'}, component: AddEditCarComponent },
+      { path: 'add', data: {breadcrumb: 'Add a Car'}, component: AddEditCarComponent },
       { path: 'edit/:id', data: {breadcrumb: 'Edit Car'}, component: AddEditCarComponent },
     ],
   },

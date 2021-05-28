@@ -3,15 +3,17 @@ import { AddEditBrandComponent } from './add-edit-brand/add-edit-brand.component
 import { BrandComponent } from './brand.component';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
-import { ModelComponent } from '../model/model.component';
+
 
 const routes: Routes = [
   {
     path: '',
-    data: { breadcrumb: 'Brand' },
     component: LayoutComponent,
+    data: {
+      breadcrumb: 'Add Brad',
+    },
     children: [
-      { path: '', data: { breadcrumb: null }, component: BrandComponent },
+      { path: '', component: BrandComponent },
       {
         path: 'add',
         data: {

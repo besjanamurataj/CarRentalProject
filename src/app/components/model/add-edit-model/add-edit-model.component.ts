@@ -25,7 +25,6 @@ export class AddEditModelComponent implements OnInit {
  model:Model [] =[];
   constructor(private formBuilder:FormBuilder, private modelService: ModelService, private brandService:BrandService,
     private toastr:ToastrService, private title:Title, private router:Router, private route:ActivatedRoute,
-    private navigation:NavigationService
    ) { }
 
   ngOnInit(): void {
@@ -61,9 +60,7 @@ export class AddEditModelComponent implements OnInit {
         this.updateModel();
       }
     }
- 
   }
-
   getListBrand(){
     this.brandService.getAll().subscribe(
       data =>{
@@ -87,11 +84,9 @@ updateModel(){
     this.router.navigate(['/home/model'], { relativeTo: this.route });
     console.log(data);
   }), (error) =>{
-     this.toastr.error("lflf");
+    // this.toastr.error();
   }
 }
-
-
 getModelById(id){
   this.modelService.getElementById(this.id).subscribe(data =>{
        this.modelForm.patchValue({

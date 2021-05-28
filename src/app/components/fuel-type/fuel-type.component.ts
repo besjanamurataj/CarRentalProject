@@ -1,10 +1,10 @@
-import { error } from 'selenium-webdriver';
+
 import { FuelType } from './../../core/models/fuelType';
 import { ToastrService } from './../../core/service/toastr.service';
 import { ConfirmationService } from './../../shared/confirmation/confirmation.service';
 import { FuelTypeService } from './../../core/service/fuel-type.service';
 import { Component, OnInit } from '@angular/core';
-import { MESSAGE_DELETE_FUELTYPE} from './fueltype.constant';
+import { MESSAGE_DELETE_FUELTYPE, MESSAGE_ERROR} from './fueltype.constant';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -22,51 +22,31 @@ export class FuelTypeComponent implements OnInit {
     private route: ActivatedRoute
   ) {}
   ngOnInit(): void {
-    this.route.queryParams.subscribe(res=> {
-      if((res as any).action =='update') {
-       this.fuelService.getFuelType().subscribe(data =>{
-         debugger
-         this.fuelType
-         = data
-         localStorage.removeItem('data')
-         localStorage.setItem("data", JSON.stringify(this.fuelType))
-       })
-    }
-    if((res as any).action =='delete') {
-         let array =  JSON.parse(localStorage.getItem("data")) ;
-         array.filter(el => {
-           return el.id != res.id
-         })
-         localStorage.removeItem('data');
-         localStorage.setItem('data', JSON.stringify(array))
+    this.route.queryParams.subscribe((res) => {
+      if ((res as any).action == 'update') {
+        this.fuelService.getFuelType().subscribe((data) => {
+          this.fuelType = data;
+          localStorage.removeItem('transmision');
+          localStorage.setItem('transmision', JSON.stringify(this.fuelType));
+        });
       }
-      if((res as any).action =='create') {
- 
-       this.fuelService.getFuelType().subscribe(data =>{
-         debugger
-         this.fuelType = data
-         localStorage.removeItem('data')
-         localStorage.setItem("data", JSON.stringify(this.fuelType))
-       })
-     }
-     
-     
-     
-     
-     })
-     if(localStorage.getItem('data')!= null){
-       this.fuelType = JSON.parse(localStorage.getItem('data'));
-       //testoje pak dy sekonda
-     }
-     else{
-       this.fuelService.getFuelType().subscribe(data =>{
-         this.fuelType = data
-         localStorage.setItem("data", JSON.stringify(this.fuelType)) 
-       })
-     
-     }
-  }
+      if ((res as any).action == 'create') {
+        this.fuelService.getFuelType().subscribe((data) => {
 
+          this.fuelType = data;
+          localStorage.setItem('transmision', JSON.stringify(this.fuelType));
+        });
+      }
+    });
+    if (localStorage.getItem('transmision') != null) {
+      this.fuelType = JSON.parse(localStorage.getItem('transmision'));
+    } else {
+      this.fuelService.getFuelType().subscribe((data) => {
+        this.fuelType = data;
+        localStorage.setItem('transmision', JSON.stringify(this.fuelType));
+      });
+    }
+  }
   openConfirm(item) {
     this.confirmationService
       .confirm('Confirmation', 'Are you sure to delete?')
@@ -77,25 +57,17 @@ export class FuelTypeComponent implements OnInit {
       });
   }
   deletePost(item) {
+    const index = this.fuelType.indexOf(item);
+    this.fuelType.splice(index, 1);
     this.fuelService.delete(item.id).subscribe(
       (el) => {
-        console.log(item.id);
-        const index = this.fuelType.indexOf(item);
-        console.log(index);
-        this.fuelType.splice(index, 1);
+        localStorage.setItem('transmision',JSON.stringify(this.fuelType))
         this.toastrService.success(MESSAGE_DELETE_FUELTYPE);
       },
       (error) => {
-        console.error(error);
+        this.toastrService.error( MESSAGE_ERROR);
       }
     );
   }
-  getFuel() {
-    this.fuelService.getFuelType().subscribe((data) => {
-      this.fuelType = data;
-    }),
-      (error) => {
-        console.error(error);
-      };
-  }
+
 }

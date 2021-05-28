@@ -1,4 +1,7 @@
 <app-card>
+  <span slot="start">
+    <h2>Car List</h2>
+  </span>
     <table class="table table-striped">
       <thead>
         <tr>
@@ -13,7 +16,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor = "let car of car">
+        <tr *ngFor = "let car of cars">
           <td>{{car.fuelType}}</td>
           <td>{{car.brandName}}</td>
           <td>{{car.carCapacity}}</td>
@@ -22,15 +25,11 @@
           <td>{{car.carLocation}}</td>
           <td>{{car.description}}</td>
           <td style="white-space: nowrap">
-            <a  routerLink="edit/{{car.id}}" class="btn btn-sm btn-primary m-2"
-              >Edit</a
-            >
-            <a
-              type="button"
-              class="btn btn-sm btn-danger mt-2"
-              (click)="openConfirmation(car)"
-              >Delete</a
-            >
+            <a  routerLink="edit/{{car.id}}" class=" m-2"><i class="fa fa-edit"></i></a
+>
+            <a type="button"
+              class=" mt-2"
+              (click)="openConfirmation(car)"> <i class="fa fa-trash" style="color:red" ></i> </a>
           </td>
         </tr>
       </tbody>

@@ -16,14 +16,15 @@
       <tr *ngFor="let transmision of transmisionsArr">
         <td>{{transmision.name}}</td>
         <td style="white-space: nowrap">
+          <a
+          (click)=" openConfirmation(transmision)"
+          class="  m-2"
+          > <i class="fa fa-trash"  style="color:red"></i></a
+        >
           <a routerLink="edit/{{ transmision.id }}" class=" m-2"
             ><i class="fa fa-edit"></i></a
           >
-          <a
-            (click)=" openConfirmation(transmision)"
-            class="  m-2"
-            > <i class="fa fa-trash"  style="color:red"></i></a
-          >
+
         </td>
       </tr>
     </tbody>

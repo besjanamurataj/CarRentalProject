@@ -10,7 +10,7 @@ const routes: Routes = [
     data: { breadcrumb: "Transmision"},
     component: LayoutComponent,
     children: [
-      { path: '',data: { breadcrumb: null}, component: TransmisionTypeComponent },
+      { path: '', component: TransmisionTypeComponent },
       { path: 'add',data: {breadcrumb: 'Add Transmision'}, component: AddEditTransmisionComponent },
       { path: 'edit/:id',data: {breadcrumb: 'Edit Transmision'}, component: AddEditTransmisionComponent },
     ],
